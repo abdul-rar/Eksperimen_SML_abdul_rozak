@@ -1,0 +1,31 @@
+name: Preprocess Energy Data
+
+on:
+  push:
+    paths:
+      - '**/*.py'
+      - '**/*.csv'
+      - '.github/workflows/preprocessing.yml'
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.12.7
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas scikit-learn
+
+    - name: Run automate preprocessing
+      working-directory: preprocessing
+      run: |
+        python automate_abdul_rozak.py
