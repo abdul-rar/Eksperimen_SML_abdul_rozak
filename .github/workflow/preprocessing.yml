@@ -5,7 +5,7 @@ on:
     paths:
       - '**/*.py'
       - '**/*.csv'
-      - '.github/workflows/preprocessing.yml'
+      - '.github/workflow/preprocessing.yml'
 
 jobs:
   preprocessing:
